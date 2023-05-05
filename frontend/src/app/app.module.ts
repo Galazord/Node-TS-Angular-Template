@@ -7,10 +7,18 @@ import { AppRoutingModule } from './app.routing';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+
+import { HomeComponent } from './components/home/home.component';
+import { ConfigComponent } from './components/config/config.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ConfigComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +27,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

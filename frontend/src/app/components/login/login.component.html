@@ -2,18 +2,37 @@
   <div class="bg-login-container">
     <div class="row login-position-panel">
       <div class="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6 bg-login-panel">
-        <div *ngIf="usuario">Bienvenido {{ usuario }}</div>
 
-        <div *ngIf="!usuario">Por favor ingrese usuario</div>
+        <div class="row">
+          <div class="col d-flex justify-content-center">
+            <div style="width: 25%"><img src="../../../assets/img/logo-AIR.png" /></div>
+          </div>
+        </div>
 
-        <!-- 
-        <ng-container *ngIf="showLogin === 'login'">
-          <div>login</div>
-        </ng-container>
-        <ng-template #register>
-          <div>register</div>
-        </ng-template>
-        -->
+        <div class="row">
+          <div [ngSwitch]="showLogin" class="col-6 d-flex justify-content-center">
+            <!-- REGISTER -->
+            <div *ngSwitchCase="'register'">Register</div>
+            <!-- FORGOTEN PASSWORD -->
+            <div *ngSwitchCase="'password'">Password</div>
+            <!-- LOGIN -->
+            <div *ngSwitchDefault>
+              <form [formGroup]="signupForm" (ngSubmit)="sendForm(signupForm.value)">
+                <div>
+                  <input formControlName="name" type="text" placeholder="Introducir nombre">
+                </div>
+                <div>
+                  <input formControlName="passw" type="password" placeholder="Introducir contraseña">
+                </div>
+                <div>
+                  <button [disabled]="signupForm.invalid" type="submit" class="w-100">Registrarse</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
