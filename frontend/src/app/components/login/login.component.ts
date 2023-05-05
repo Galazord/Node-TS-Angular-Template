@@ -5,12 +5,15 @@ import { Component } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent {
 
-  constructor(
-    //public showLogin: string = 'login'
-  ) {}
+  
+
+  constructor() {}
 
   ngOnInit() {}
 
+  usuario = 'Alberto'
+  
 }
