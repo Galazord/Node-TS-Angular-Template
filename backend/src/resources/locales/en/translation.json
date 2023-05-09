@@ -1,0 +1,9 @@
+{
+	"badToken": "In order to access this resource you need to pass a correct authentication bearer token in the 'Authorization' header like this: Bearer <token>",
+	"userExists":"User {{username}} already exists on the system please select a different one",
+	"wrongUsernameOrPassword":"The provided username or password is incorrect",
+	"wrongUserAndPassword":"You need to pass a correct {{str}} to be registered succesfully",
+	"userAndPassword":"username and a correct password",
+	"username":"user name",
+	"password":"password"
+}

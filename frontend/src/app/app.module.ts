@@ -25,7 +25,7 @@ import { LoginComponent } from './components/login/login.component';
     AppComponent,
     HomeComponent,
     ConfigComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +39,7 @@ import { LoginComponent } from './components/login/login.component';
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
