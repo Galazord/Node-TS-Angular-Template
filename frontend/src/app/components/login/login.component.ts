@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import config from "../../../config.json";
+import { DialogErrorComponent } from '../dialogs/dialog-error/dialog-error.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'login',
@@ -28,7 +30,8 @@ export class LoginComponent {
     private _builderLogin: FormBuilder,
     private _builderRegister: FormBuilder,
     private _builderPassword: FormBuilder,
-    private _http: HttpClient
+    private _http: HttpClient,
+    public dialog: MatDialog
   ){
     this.loginForm = this._builderLogin.group({
       loginUser: [""],
@@ -137,4 +140,17 @@ export class LoginComponent {
     this.showLogin = 'login'
   }
 
+  openDialog(): void{
+    const dialogRef = this.dialog.open(DialogErrorComponent, {
+      width: '450px',
+      data: {title: "CERRAR SESIÓN", text: "¿Está seguro de cerrar la sesión de usuario actual?"},
+      disableClose: true,
+      hasBackdrop: true
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if(res){
+        console.log("Cambios confirmados");
+      }
+    })
+  }
 }
