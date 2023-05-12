@@ -7,22 +7,22 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-dialog-error',
-  templateUrl: './dialog-error.component.html',
-  styleUrls: ['./dialog-error.component.scss']
+  selector: 'app-dialog-logout',
+  templateUrl: './dialog-logout.component.html',
+  styleUrls: ['./dialog-logout.component.scss']
 })
-export class DialogErrorComponent {
+export class DialogLogoutComponent {
   constructor(
     public dialog: MatDialog,
-    public dialogRef: MatDialogRef<DialogErrorComponent>,
+    public dialogRef: MatDialogRef<DialogLogoutComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
   openDialog() {
-    this.dialog.open(DialogErrorComponent);
+    this.dialog.open(DialogLogoutComponent);
   }
 
-  onClickClose(): void {
+  onClickNo(): void {
     this.dialogRef.close();
   }
 }

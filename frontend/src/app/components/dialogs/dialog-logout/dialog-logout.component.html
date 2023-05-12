@@ -1,6 +1,6 @@
 <div mat-dialog-title class="text-center bg-dialog-title">
   <div class="d-inline">
-    <mat-icon fontIcon="close" class="icon-color-dialog"></mat-icon>
+    <mat-icon fontIcon="logout" class="icon-color-dialog"></mat-icon>
   </div>
   <div class="d-inline font-roboto-normal position-dialog-title">{{ data.title }}</div>
 </div>
@@ -8,8 +8,11 @@
 <div mat-dialog-content class="text-center font-roboto-normal color-text-dark-red">{{ data.text }}</div>
 <div mat-dialog-actions class="d-flex justify-content-center">
   <div class="row w-100">
-    <div class="text-center">
-      <button class="btn-close" mat-button (click)="onClickClose()">CERRAR</button>
+    <div class="col-6 text-center">
+      <button class="btn-no" mat-button (click)="onClickNo()">NO</button>
+    </div>
+    <div class="col-6 text-center">
+      <button class="btn-yes" mat-button [mat-dialog-close]="true">SI</button>
     </div>
   </div>
 </div>

@@ -18,7 +18,12 @@
 .color-text-dark-red {
     color: #501818;
 }
-.btn-close.mat-mdc-button {
+.btn-yes.mat-mdc-button {
+    width: 100%;
+    color: #dfd5d5 !important;
+    background-color: #ee2626;
+}
+.btn-no.mat-mdc-button {
     width: 100%;
     color: #555151 !important;
     background-color: #ddd8d8;

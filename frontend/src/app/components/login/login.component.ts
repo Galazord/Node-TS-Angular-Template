@@ -21,6 +21,7 @@ export class LoginComponent {
   hide = true
   hidePassw = true
   hidePasswRepit = true
+  resErrorText: string = ''
  
   loginForm: FormGroup
   registerForm: FormGroup
@@ -52,6 +53,7 @@ export class LoginComponent {
   sendForm(values: any, type: number) {
     if(type == 0){ // Login
       console.log("sendForm: ", values);
+      this.resErrorText = 'al intentar acceder a la plataforma.'
 
       let formBody = new FormData();
       formBody.append('username', values.loginUser)
@@ -66,7 +68,7 @@ export class LoginComponent {
       });
     }
     else if(type == 1){ // Register
-      
+      this.resErrorText = 'al intentar registrar un nuevo usuario.'
       if(values.registerPassw === values.registerPasswRepit){
         let formBody = new FormData();
         formBody.append('registerUser', values.registerUser)
@@ -90,7 +92,7 @@ export class LoginComponent {
     }
     else if(type == 2){ // Forgotten password
       console.log("PasswordForm: ", values);
-
+      this.resErrorText = 'al enviar el email de restauración de contraseña.'
       let formBody = new FormData();
       formBody.append('emailPassword', values.emailPassword)
 
@@ -119,6 +121,7 @@ export class LoginComponent {
 
   errorPostForm(err: HttpErrorResponse){
     console.error("Error: ", err);
+    this.openGeneralError(this.resErrorText);
   }
 
   sendForgotPassw(){
@@ -140,6 +143,23 @@ export class LoginComponent {
     this.showLogin = 'login'
   }
 
+
+  /* DIALOGS */
+  openGeneralError(infoTextError: string): void{
+    const dialogRef = this.dialog.open(DialogErrorComponent, {
+      width: '450px',
+      data: {title: "FALLO EN LA CONSULTA", text: "Lo sentimos, se ha producido un error " + infoTextError},
+      disableClose: true,
+      hasBackdrop: true
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if(res){
+        console.log("Cambios confirmados");
+      }
+    })
+  }
+
+  /*
   openDialog(): void{
     const dialogRef = this.dialog.open(DialogErrorComponent, {
       width: '450px',
@@ -153,4 +173,5 @@ export class LoginComponent {
       }
     })
   }
+  */
 }

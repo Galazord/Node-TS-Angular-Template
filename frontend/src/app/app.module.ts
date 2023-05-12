@@ -21,6 +21,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ConfigComponent } from './components/config/config.component';
 import { LoginComponent } from './components/login/login.component';
 import { DialogErrorComponent } from './components/dialogs/dialog-error/dialog-error.component';
+import { DialogLogoutComponent } from './components/dialogs/dialog-logout/dialog-logout.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { DialogErrorComponent } from './components/dialogs/dialog-error/dialog-e
     ConfigComponent,
     LoginComponent,
     DialogErrorComponent,
+    DialogLogoutComponent,
   ],
   imports: [
     BrowserModule,
