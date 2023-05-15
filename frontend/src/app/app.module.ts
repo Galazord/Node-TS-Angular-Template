@@ -6,7 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routing';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'
+import { HttpClient, HttpClientModule } from '@angular/common/http'
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,12 +18,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 
-
 import { HomeComponent } from './components/home/home.component';
 import { ConfigComponent } from './components/config/config.component';
 import { LoginComponent } from './components/login/login.component';
 import { DialogErrorComponent } from './components/dialogs/dialog-error/dialog-error.component';
 import { DialogLogoutComponent } from './components/dialogs/dialog-logout/dialog-logout.component';
+import { DialogSuccessComponent } from './components/dialogs/dialog-success/dialog-success.component';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { DialogLogoutComponent } from './components/dialogs/dialog-logout/dialog
     LoginComponent,
     DialogErrorComponent,
     DialogLogoutComponent,
+    DialogSuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,15 +43,26 @@ import { DialogLogoutComponent } from './components/dialogs/dialog-logout/dialog
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
     MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
     MatDividerModule,
-    MatDialogModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
+
+export function httpTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http);
+}

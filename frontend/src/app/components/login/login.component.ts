@@ -4,6 +4,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import config from "../../../config.json";
 import { DialogErrorComponent } from '../dialogs/dialog-error/dialog-error.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { DialogSuccessComponent } from '../dialogs/dialog-success/dialog-success.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'login',
@@ -21,7 +24,8 @@ export class LoginComponent {
   hide = true
   hidePassw = true
   hidePasswRepit = true
-  resErrorText: string = ''
+  resDialogTitle: string = ''
+  resDialogText: string = ''
  
   loginForm: FormGroup
   registerForm: FormGroup
@@ -32,7 +36,9 @@ export class LoginComponent {
     private _builderRegister: FormBuilder,
     private _builderPassword: FormBuilder,
     private _http: HttpClient,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _router: Router,
+    public translate: TranslateService
   ){
     this.loginForm = this._builderLogin.group({
       loginUser: [""],
@@ -52,57 +58,84 @@ export class LoginComponent {
   
   sendForm(values: any, type: number) {
     if(type == 0){ // Login
-      console.log("sendForm: ", values);
-      this.resErrorText = 'al intentar acceder a la plataforma.'
+      if(values.loginUser != undefined && values.loginPassw != undefined && values.loginUser != "" && values.loginPassw != ""){
+        this.resDialogTitle = this.translate.instant('accessDenied')
+        this.resDialogText = this.translate.instant('ErrorLogin')
 
-      let formBody = new FormData();
-      formBody.append('username', values.loginUser)
-      formBody.append('password', values.loginPassw)
+        let bodyPOST = {
+          username: values.loginUser,
+          password: values.loginPassw
+        }
 
-      this._http.post(this.urlLogin, formBody, 
-      {
-        headers: {'Content-Type': 'application/json'}
-      }).subscribe({
-        next: this.resultPostLogin.bind(this),
-        error: this.errorPostForm.bind(this)
-      });
-    }
-    else if(type == 1){ // Register
-      this.resErrorText = 'al intentar registrar un nuevo usuario.'
-      if(values.registerPassw === values.registerPasswRepit){
-        let formBody = new FormData();
-        formBody.append('registerUser', values.registerUser)
-        formBody.append('registerPassw', values.registerPassw)
-        formBody.append('role', 'user')
-
-        console.log(this.urlRegister);
-        console.log("registerForm: ", formBody);
-    
-        this._http.post(this.urlRegister, formBody, 
+        this._http.post(this.urlLogin, bodyPOST, 
         {
           headers: {'Content-Type': 'application/json'}
         }).subscribe({
-          next: this.resultPostRegister.bind(this),
+          next: this.resultPostLogin.bind(this),
           error: this.errorPostForm.bind(this)
         });
       }
       else{
-        console.error("Las contraseñas no coinciden")
+        this.resDialogTitle = this.translate.instant('accessDenied')
+        this.resDialogText = this.translate.instant('incorrectUserOrPassw')
+        this.openGeneralError(this.resDialogTitle, this.resDialogText);
+      }
+    }
+    else if(type == 1){ // Register
+      if(values.registerUser != undefined && values.registerPassw != undefined && values.registerUser != "" && values.registerPassw != ""){
+        if(values.registerPassw === values.registerPasswRepit){
+          this.resDialogTitle = this.translate.instant('errorRegisteringUserTitle')
+          this.resDialogText = this.translate.instant('errorRegisteringUserText')
+
+          let bodyPOST = {
+            username: values.registerUser,
+            password: values.registerPassw,
+            role: 'user'
+          }
+      
+          this._http.post(this.urlRegister, bodyPOST, 
+          {
+            headers: {'Content-Type': 'application/json'}
+          }).subscribe({
+            next: this.resultPostRegister.bind(this),
+            error: this.errorPostForm.bind(this)
+          });
+        }
+        else{
+          this.resDialogTitle = this.translate.instant('incorrectPasswTitle')
+          this.resDialogText = this.translate.instant('incorrectPasswText')
+          this.openGeneralError(this.resDialogTitle, this.resDialogText);
+        }
+      }
+      else{
+        this.resDialogTitle = this.translate.instant('accessDenied')
+        this.resDialogText = this.translate.instant('incorrectUserOrPassw')
+        this.openGeneralError(this.resDialogTitle, this.resDialogText);
       }
     }
     else if(type == 2){ // Forgotten password
-      console.log("PasswordForm: ", values);
-      this.resErrorText = 'al enviar el email de restauración de contraseña.'
-      let formBody = new FormData();
-      formBody.append('emailPassword', values.emailPassword)
+      if(values.emailPassword != undefined && values.emailPassword != ""){
+        this.resDialogTitle = this.translate.instant('errorProcessTitle')
+        this.resDialogText = this.translate.instant('errorProcessText')
 
-      this._http.post(this.urlPasswEmail, formBody, 
-      {
-        headers: {'Content-Type': 'application/json'}
-      }).subscribe({
-        next: this.resultPostPassw.bind(this),
-        error: this.errorPostForm.bind(this)
-      });
+        let bodyPOST = {
+          emailPassword: values.emailPassword
+        }
+
+        this._http.post(this.urlPasswEmail, bodyPOST, 
+        {
+          headers: {'Content-Type': 'application/json'}
+        }).subscribe({
+          next: this.resultPostPassw.bind(this),
+          error: this.errorPostForm.bind(this)
+        });
+      }
+      else{
+        this.resDialogTitle = this.translate.instant('incorrectPasswTitle')
+        this.resDialogText = this.translate.instant('incorrectEmail')
+        this.openGeneralError(this.resDialogTitle, this.resDialogText);
+      }
+
     }
     else{ 
       console.error("ERROR al identificar la función de la petición.")
@@ -110,10 +143,11 @@ export class LoginComponent {
   }
 
   resultPostLogin(data: any){
-    console.log("login: ", data);
+    this._router.navigateByUrl('/home');
   }
   resultPostRegister(data: any){
-    console.log("register: ", data);
+    this.openSuccess(this.resDialogTitle, this.resDialogText);
+    this.goBackLogin();
   }
   resultPostPassw(data: any){
     console.log("password: ", data);
@@ -121,42 +155,42 @@ export class LoginComponent {
 
   errorPostForm(err: HttpErrorResponse){
     console.error("Error: ", err);
-    this.openGeneralError(this.resErrorText);
+    this.openGeneralError(this.resDialogTitle, this.resDialogText);
   }
 
   sendForgotPassw(){
-    console.log("Password");
     this.showLogin = 'password'
   }
 
   goFormRegister(){
-    console.log("register");
     this.loginForm.reset()
     this.registerForm.reset()
     this.showLogin = 'register'
   }
 
   goBackLogin(){
-    console.log("VOLVER")
     this.loginForm.reset()
     this.registerForm.reset()
     this.showLogin = 'login'
   }
 
-
   /* DIALOGS */
-  openGeneralError(infoTextError: string): void{
-    const dialogRef = this.dialog.open(DialogErrorComponent, {
+  openGeneralError(titleError: string, textError: string): void{
+    this.dialog.open(DialogErrorComponent, {
       width: '450px',
-      data: {title: "FALLO EN LA CONSULTA", text: "Lo sentimos, se ha producido un error " + infoTextError},
+      data: {title: titleError, text: textError},
       disableClose: true,
       hasBackdrop: true
     });
-    dialogRef.afterClosed().subscribe(res => {
-      if(res){
-        console.log("Cambios confirmados");
-      }
-    })
+  }
+
+  openSuccess(titleSuccess: string, textSuccess: string): void{
+    this.dialog.open(DialogSuccessComponent, {
+      width: '450px',
+      data: {title: titleSuccess, text: textSuccess},
+      disableClose: true,
+      hasBackdrop: true
+    });
   }
 
   /*

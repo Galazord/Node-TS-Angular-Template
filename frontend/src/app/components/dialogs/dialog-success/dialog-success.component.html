@@ -1,0 +1,15 @@
+<div mat-dialog-title class="text-center bg-dialog-title">
+    <div class="d-inline">
+      <mat-icon fontIcon="close" class="icon-color-dialog"></mat-icon>
+    </div>
+    <div class="d-inline font-roboto-normal position-dialog-title">{{ data.title }}</div>
+  </div>
+  <mat-divider class="ma-0 pa-0"></mat-divider>
+  <div mat-dialog-content class="text-center font-roboto-normal color-text-dark-green">{{ data.text }}</div>
+  <div mat-dialog-actions class="d-flex justify-content-center">
+    <div class="row w-100">
+      <div class="text-center">
+        <button class="btn-close" mat-button (click)="onClickClose()">CERRAR</button>
+      </div>
+    </div>
+  </div>

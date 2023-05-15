@@ -16,18 +16,18 @@
             <!-- REGISTER -->
             <div *ngSwitchCase="'register'" class="animation-fade-in-right">
 
-              <div class="bg-register-title bg-color-2 color-4 mx-auto text-base-title text-center">DARSE DE ALTA COMO USUARIO</div>
+              <div class="bg-register-title bg-color-2 color-4 mx-auto text-base-title text-center">{{ 'updateUser' | translate }}</div>
 
               <form [formGroup]="registerForm" (ngSubmit)="sendForm(registerForm.value, 1)">
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
-                    <mat-label>Introducir usuario</mat-label>
+                    <mat-label>{{ 'nameUserPlaceholder' | translate }}</mat-label>
                     <input formControlName="registerUser" matInput type="text">
                   </mat-form-field>                  
                 </div>
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
-                    <mat-label>Introducir contraseña</mat-label>
+                    <mat-label>{{ 'namePasswPlaceHolder' | translate }}</mat-label>
                     <input formControlName="registerPassw" matInput [type]="hidePassw ? 'password' : 'text'">
                     <button mat-icon-button matSuffix (click)="hidePassw = !hidePassw" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassw">
                       <mat-icon>{{hidePassw ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -36,7 +36,7 @@
                 </div>
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
-                    <mat-label>Volver a introducir contraseña</mat-label>
+                    <mat-label>{{ 'reEnterPassw' | translate }}</mat-label>
                     <input formControlName="registerPasswRepit" matInput [type]="hidePasswRepit ? 'password' : 'text'">
                     <button mat-icon-button matSuffix (click)="hidePasswRepit = !hidePasswRepit" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePasswRepit">
                       <mat-icon>{{hidePasswRepit ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -44,11 +44,11 @@
                   </mat-form-field>                  
                 </div>
                 <div class="mt-3">
-                  <button type="submit" class="btn-style-standard btn-color-normal color-4">DARSE DE ALTA</button>
+                  <button type="submit" class="btn-style-standard btn-color-normal color-4">{{ 'register' | translate }}</button>
                 </div>
               </form>
               <div class="mt-3">
-                <button class="btn-style-standard btn-color-back color-5" (click)="goBackLogin()">VOLVER</button>
+                <button class="btn-style-standard btn-color-back color-5" (click)="goBackLogin()">{{ 'back' | translate }}</button>
               </div>
 
             </div>
@@ -58,16 +58,16 @@
               <form [formGroup]="passwordForm" (ngSubmit)="sendForm(passwordForm.value, 2)">
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
-                    <mat-label>Introducir email de usuario</mat-label>
+                    <mat-label>{{ 'emailUserPlaceholder' | translate }}</mat-label>
                     <input formControlName="emailPassword" matInput type="text">
                   </mat-form-field>                  
                 </div>
                 <div class="mt-3">
-                  <button type="submit" class="btn-style-standard btn-color-normal color-4">ENVIAR</button>
+                  <button type="submit" class="btn-style-standard btn-color-normal color-4">{{ 'send' | translate }}</button>
                 </div>
               </form>
               <div class="mt-3">
-                <button class="btn-style-standard btn-color-back color-5" (click)="goBackLogin()">VOLVER</button>
+                <button class="btn-style-standard btn-color-back color-5" (click)="goBackLogin()">{{ 'back' | translate }}</button>
               </div>
 
             </div>
@@ -77,13 +77,13 @@
               <form [formGroup]="loginForm" (ngSubmit)="sendForm(loginForm.value, 0)">
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
-                    <mat-label>Introducir usuario</mat-label>
+                    <mat-label>{{ 'nameUserLabel' | translate }}</mat-label>
                     <input formControlName="loginUser" matInput type="text">
                   </mat-form-field>                  
                 </div>
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
-                    <mat-label>Introducir contraseña</mat-label>
+                    <mat-label>{{ 'namePasswLabel' | translate }}</mat-label>
                     <input formControlName="loginPassw" matInput [type]="hide ? 'password' : 'text'">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -91,19 +91,19 @@
                   </mat-form-field>                  
                 </div>
                 <div class="text-center my-4">
-                  <a class="color-7" (click)="sendForgotPassw()">¿Ha olvidado la contraseña?</a>
+                  <a class="color-7" (click)="sendForgotPassw()">{{ 'forgotPassw' | translate }}</a>
                 </div>
                 <div>
-                  <button type="submit" class="btn-style-standard btn-color-normal color-4">ACCEDER</button>
+                  <button type="submit" class="btn-style-standard btn-color-normal color-4">{{ 'access' | translate }}</button>
                 </div>
               </form>
 
               <mat-divider class="my-5"></mat-divider>
 
-              <div class="text-base-title color-2 text-center mb-4">Si es la primera debe darse de alta como usuario</div>
+              <div class="text-base-title color-2 text-center mb-4">{{ 'firstOneRegister' | translate }}</div>
 
               <div>
-                <button class="btn-style-standard btn-color-normal color-4" (click)="goFormRegister()">DARSE DE ALTA</button>
+                <button class="btn-style-standard btn-color-normal color-4" (click)="goFormRegister()">{{ 'registering' | translate }}</button>
               </div>
             </div>
           </div>

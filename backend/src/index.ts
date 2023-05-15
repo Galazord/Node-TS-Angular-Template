@@ -27,6 +27,8 @@ const port = process.env.PORT || 3000;
 const host = process.env.HOST || 'localhost';
 const baseUrl = process.env.BASE_URL || '/api';
 
+console.log({baseUrl})
+
 const expressSwagger = require('express-swagger-generator')(app);
 
 let options = {
