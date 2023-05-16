@@ -10,6 +10,7 @@
   "registering": "REGISTER",
   "required": "Required field",
   "loading": "Loading...",
+  "loadingText": "Please wait",
   "accessDenied": "ACCESS DENIED",
   "incorrectUser": "You need to pass a correct username to log in successfully.",
   "incorrectUserOrPassw": "The user name or password provided is incorrect.",

@@ -10,6 +10,7 @@
   "registering": "DARSE DE ALTA",
   "required": "Campo obligatorio",
   "loading": "Cargando...",
+  "loadingText": "Por favor, espere",
   "accessDenied": "ACCESO DENEGADO",
   "incorrectUser": "Es necesario pasar un nombre de usuario correcto para iniciar la sesión con éxito.",
   "incorrectUserOrPassw": "El nombre de usuario o la contraseña proporcionados son incorrectos.",

@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DialogSuccessComponent } from '../dialogs/dialog-success/dialog-success.component';
 import { TranslateService } from '@ngx-translate/core';
+import { DialogLoaderComponent } from '../dialogs/dialog-loader/dialog-loader.component';
 
 @Component({
   selector: 'login',
@@ -54,13 +55,17 @@ export class LoginComponent {
     this.passwordForm = this._builderPassword.group({
       emailPassword: ["", Validators.required]
     })
+
+    this.resDialogTitle = this.translate.instant('loading')
+    this.resDialogText = this.translate.instant('loadingText')
+    this.openLoaderScreen(this.resDialogTitle, this.resDialogText);
   }
   
   sendForm(values: any, type: number) {
     if(type == 0){ // Login
       if(values.loginUser != undefined && values.loginPassw != undefined && values.loginUser != "" && values.loginPassw != ""){
         this.resDialogTitle = this.translate.instant('accessDenied')
-        this.resDialogText = this.translate.instant('ErrorLogin')
+        this.resDialogText = this.translate.instant('errorLogin')
 
         let bodyPOST = {
           username: values.loginUser,
@@ -186,6 +191,15 @@ export class LoginComponent {
 
   openSuccess(titleSuccess: string, textSuccess: string): void{
     this.dialog.open(DialogSuccessComponent, {
+      width: '450px',
+      data: {title: titleSuccess, text: textSuccess},
+      disableClose: true,
+      hasBackdrop: true
+    });
+  }
+
+  openLoaderScreen(titleSuccess: string, textSuccess: string): void{
+    this.dialog.open(DialogLoaderComponent, {
       width: '450px',
       data: {title: titleSuccess, text: textSuccess},
       disableClose: true,

@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { HomeComponent } from './components/home/home.component';
 import { ConfigComponent } from './components/config/config.component';
@@ -24,6 +25,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DialogErrorComponent } from './components/dialogs/dialog-error/dialog-error.component';
 import { DialogLogoutComponent } from './components/dialogs/dialog-logout/dialog-logout.component';
 import { DialogSuccessComponent } from './components/dialogs/dialog-success/dialog-success.component';
+import { DialogLoaderComponent } from './components/dialogs/dialog-loader/dialog-loader.component';
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { DialogSuccessComponent } from './components/dialogs/dialog-success/dial
     DialogErrorComponent,
     DialogLogoutComponent,
     DialogSuccessComponent,
+    DialogLoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { DialogSuccessComponent } from './components/dialogs/dialog-success/dial
     MatInputModule,
     MatButtonModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

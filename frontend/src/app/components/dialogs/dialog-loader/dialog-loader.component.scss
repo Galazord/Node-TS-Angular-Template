@@ -1,0 +1,30 @@
+.bg-dialog-title {
+    background-color: #00627C;
+    margin: 0;
+    padding-bottom: 10px;
+}
+.icon-color-dialog {
+    color: #f1ecec;
+}
+.mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
+    background-color: #069eb3;
+    background-color: var(--mdc-linear-progress-track-color, #069eb3);
+}
+.mat-divider {
+    border-top-color: #069eb3;
+    border-top-width: 4px;
+}
+.font-roboto-normal {
+    font-family: 'Roboto';
+    letter-spacing: 0.7px;
+    color: #f1ecec;
+}
+.color-text-loader {
+    color: #0e303a;
+}
+.mat-icon {
+    vertical-align: middle;
+}
+.position-dialog-title {
+    margin-left: 20px;
+}
