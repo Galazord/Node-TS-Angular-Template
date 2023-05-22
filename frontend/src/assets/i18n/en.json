@@ -16,7 +16,7 @@
   "incorrectUserOrPassw": "The user name or password provided is incorrect.",
   "errorLogin": "Sorry, for some reason login failed.",
   "registeredUserTitle": "REGISTERED USER",
-  "registeredUserText": "The user {nameUser} has been successfully registered.",
+  "registeredUserText": "The user {{ nameUser }} has been successfully registered.",
   "passwordRecoveryTitle": "RECOVER PASSWORD",
   "passwordRecoveryText": "An email for password recovery has been sent to email: {email}",
   "updateUser": "LOGIN AS USER",

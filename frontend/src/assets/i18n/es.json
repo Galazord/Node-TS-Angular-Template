@@ -16,7 +16,7 @@
   "incorrectUserOrPassw": "El nombre de usuario o la contraseña proporcionados son incorrectos.",
   "ErrorLogin": "Lo sentimos, por algún motivo no se ha podido iniciar sesión.",
   "registeredUserTitle": "USUARIO REGISTRADO",
-  "registeredUserText": "El usuario {nameUser} se ha registrado correctamente.",
+  "registeredUserText": "El usuario {{nameUser}} se ha registrado correctamente.",
   "passwordRecoveryTitle": "RECUPERAR CONTRASEÑA",
   "passwordRecoveryText": "Se ha mandado un email para la recuperación de la contraseña al email: {email}",
   "updateUser": "DARSE DE ALTA COMO USUARIO",

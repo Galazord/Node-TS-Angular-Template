@@ -16,7 +16,7 @@
   "incorrectUserOrPassw": "Le nom d'utilisateur ou le mot de passe fourni est incorrect.",
   "ErrorLogin": "Désolé, pour une raison quelconque, la connexion a échoué.",
   "registeredUserTitle": "UTILISATEUR ENREGISTRÉ",
-  "registeredUserText": "L'utilisateur {nomUser} a été enregistré avec succès.",
+  "registeredUserText": "L'utilisateur {{nameUser}} a été enregistré avec succès.",
   "passwordRecoveryTitle": "RÉCUPÉRATION DE MOT DE PASSE",
   "passwordRecoveryText": "Un courriel de récupération de mot de passe a été envoyé à l'adresse électronique: {email}",
   "updateUser": "S'INSCRIRE COMME UTILISATEUR",

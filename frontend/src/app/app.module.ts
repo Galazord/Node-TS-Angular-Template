@@ -18,6 +18,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 import { HomeComponent } from './components/home/home.component';
 import { ConfigComponent } from './components/config/config.component';
@@ -26,6 +30,7 @@ import { DialogErrorComponent } from './components/dialogs/dialog-error/dialog-e
 import { DialogLogoutComponent } from './components/dialogs/dialog-logout/dialog-logout.component';
 import { DialogSuccessComponent } from './components/dialogs/dialog-success/dialog-success.component';
 import { DialogLoaderComponent } from './components/dialogs/dialog-loader/dialog-loader.component';
+import { AppBarComponent } from './components/app-bar/app-bar.component';
 
 
 @NgModule({
@@ -38,6 +43,7 @@ import { DialogLoaderComponent } from './components/dialogs/dialog-loader/dialog
     DialogLogoutComponent,
     DialogSuccessComponent,
     DialogLoaderComponent,
+    AppBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +66,11 @@ import { DialogLoaderComponent } from './components/dialogs/dialog-loader/dialog
     MatButtonModule,
     MatDividerModule,
     MatDialogModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

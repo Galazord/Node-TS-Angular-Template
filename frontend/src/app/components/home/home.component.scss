@@ -1,0 +1,17 @@
+.bg-home{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  .bg-home-img-light {
+    background-image: url("../../../assets/img/wallpaper16_9-AIR-light.png");
+  }
+  .bg-home-img-dark {
+    background-image: url("../../../assets/img/wallpaper16_9-AIR-dark.png");
+  }
+  

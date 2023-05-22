@@ -27,6 +27,8 @@ export class LoginComponent {
   hidePasswRepit = true
   resDialogTitle: string = ''
   resDialogText: string = ''
+  resLoadingTitle: string = ''
+  userAux: string = ''
  
   loginForm: FormGroup
   registerForm: FormGroup
@@ -55,15 +57,14 @@ export class LoginComponent {
     this.passwordForm = this._builderPassword.group({
       emailPassword: ["", Validators.required]
     })
-
-    this.resDialogTitle = this.translate.instant('loading')
-    this.resDialogText = this.translate.instant('loadingText')
-    this.openLoaderScreen(this.resDialogTitle, this.resDialogText);
   }
   
   sendForm(values: any, type: number) {
     if(type == 0){ // Login
       if(values.loginUser != undefined && values.loginPassw != undefined && values.loginUser != "" && values.loginPassw != ""){
+        this.resLoadingTitle = this.translate.instant('loading')
+        this.openLoaderScreen(this.resDialogTitle, this.resDialogText);
+
         this.resDialogTitle = this.translate.instant('accessDenied')
         this.resDialogText = this.translate.instant('errorLogin')
 
@@ -71,6 +72,8 @@ export class LoginComponent {
           username: values.loginUser,
           password: values.loginPassw
         }
+
+        this.userAux = values.loginUser;
 
         this._http.post(this.urlLogin, bodyPOST, 
         {
@@ -89,6 +92,9 @@ export class LoginComponent {
     else if(type == 1){ // Register
       if(values.registerUser != undefined && values.registerPassw != undefined && values.registerUser != "" && values.registerPassw != ""){
         if(values.registerPassw === values.registerPasswRepit){
+          this.resLoadingTitle = this.translate.instant('loading')
+          this.openLoaderScreen(this.resDialogTitle, this.resDialogText);
+
           this.resDialogTitle = this.translate.instant('errorRegisteringUserTitle')
           this.resDialogText = this.translate.instant('errorRegisteringUserText')
 
@@ -97,6 +103,8 @@ export class LoginComponent {
             password: values.registerPassw,
             role: 'user'
           }
+
+          this.userAux = values.registerUser
       
           this._http.post(this.urlRegister, bodyPOST, 
           {
@@ -120,6 +128,9 @@ export class LoginComponent {
     }
     else if(type == 2){ // Forgotten password
       if(values.emailPassword != undefined && values.emailPassword != ""){
+        this.resLoadingTitle = this.translate.instant('loading')
+        this.openLoaderScreen(this.resDialogTitle, this.resDialogText);
+
         this.resDialogTitle = this.translate.instant('errorProcessTitle')
         this.resDialogText = this.translate.instant('errorProcessText')
 
@@ -148,17 +159,30 @@ export class LoginComponent {
   }
 
   resultPostLogin(data: any){
+    this.dialog.closeAll();
+    window.localStorage.setItem("infoUser", JSON.stringify(
+      {
+        id: this.userAux,
+        token: data.token,
+        role: data.role,
+      })
+    )
     this._router.navigateByUrl('/home');
   }
   resultPostRegister(data: any){
+    this.dialog.closeAll();
+    this.resDialogTitle = this.translate.instant('registeredUserTitle')
+    this.resDialogText = this.translate.instant('registeredUserText', { nameUser: this.userAux })
     this.openSuccess(this.resDialogTitle, this.resDialogText);
     this.goBackLogin();
   }
   resultPostPassw(data: any){
+    this.dialog.closeAll();
     console.log("password: ", data);
   }
 
   errorPostForm(err: HttpErrorResponse){
+    this.dialog.closeAll();
     console.error("Error: ", err);
     this.openGeneralError(this.resDialogTitle, this.resDialogText);
   }
