@@ -14,7 +14,7 @@
   "accessDenied": "ACCESS DENIED",
   "incorrectUser": "You need to pass a correct username to log in successfully.",
   "incorrectUserOrPassw": "The user name or password provided is incorrect.",
-  "errorLogin": "Sorry, for some reason login failed.",
+  "errorLogin": "Sorry, you were unable to connect to login.",
   "registeredUserTitle": "REGISTERED USER",
   "registeredUserText": "The user {{ nameUser }} has been successfully registered.",
   "passwordRecoveryTitle": "RECOVER PASSWORD",

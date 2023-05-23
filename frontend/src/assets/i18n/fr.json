@@ -14,7 +14,7 @@
   "accessDenied": "ACCÈS REFUSÉ",
   "incorrectUser": "Vous devez fournir un nom d'utilisateur correct pour vous connecter avec succès.",
   "incorrectUserOrPassw": "Le nom d'utilisateur ou le mot de passe fourni est incorrect.",
-  "ErrorLogin": "Désolé, pour une raison quelconque, la connexion a échoué.",
+  "errorLogin": "Désolé, vous n'avez pas pu vous connecter.",
   "registeredUserTitle": "UTILISATEUR ENREGISTRÉ",
   "registeredUserText": "L'utilisateur {{nameUser}} a été enregistré avec succès.",
   "passwordRecoveryTitle": "RÉCUPÉRATION DE MOT DE PASSE",

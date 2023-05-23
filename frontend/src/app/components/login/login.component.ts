@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { DialogSuccessComponent } from '../dialogs/dialog-success/dialog-success.component';
 import { TranslateService } from '@ngx-translate/core';
 import { DialogLoaderComponent } from '../dialogs/dialog-loader/dialog-loader.component';
+import { AuthService } from './../auth/auth.service';
 
 @Component({
   selector: 'login',
@@ -41,11 +42,13 @@ export class LoginComponent {
     private _http: HttpClient,
     public dialog: MatDialog,
     private _router: Router,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private fb: FormBuilder,
+    private authService: AuthService
   ){
     this.loginForm = this._builderLogin.group({
-      loginUser: [""],
-      loginPassw: ["", Validators.required]
+      userName: ["", Validators.required],
+      password: ["", Validators.required]
     })
 
     this.registerForm = this._builderRegister.group({
@@ -61,7 +64,7 @@ export class LoginComponent {
   
   sendForm(values: any, type: number) {
     if(type == 0){ // Login
-      if(values.loginUser != undefined && values.loginPassw != undefined && values.loginUser != "" && values.loginPassw != ""){
+      if(values.userName != undefined && values.password != undefined && values.userName != "" && values.password != ""){
         this.resLoadingTitle = this.translate.instant('loading')
         this.openLoaderScreen(this.resDialogTitle, this.resDialogText);
 
@@ -69,11 +72,14 @@ export class LoginComponent {
         this.resDialogText = this.translate.instant('errorLogin')
 
         let bodyPOST = {
-          username: values.loginUser,
-          password: values.loginPassw
+          username: values.userName,
+          password: values.password
         }
 
-        this.userAux = values.loginUser;
+        this.userAux = values.userName;
+
+        console.log(this.urlLogin);
+        console.log("bodyPOST: ", bodyPOST);
 
         this._http.post(this.urlLogin, bodyPOST, 
         {
@@ -167,7 +173,7 @@ export class LoginComponent {
         role: data.role,
       })
     )
-    this._router.navigateByUrl('/home');
+    this.authService.login(this.loginForm.value);
   }
   resultPostRegister(data: any){
     this.dialog.closeAll();

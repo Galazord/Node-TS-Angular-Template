@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { AuthGuard } from '../app/components/auth/auth.guard';
+import { AuthService } from '../app/components/auth/auth.service';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -31,6 +33,8 @@ import { DialogLogoutComponent } from './components/dialogs/dialog-logout/dialog
 import { DialogSuccessComponent } from './components/dialogs/dialog-success/dialog-success.component';
 import { DialogLoaderComponent } from './components/dialogs/dialog-loader/dialog-loader.component';
 import { AppBarComponent } from './components/app-bar/app-bar.component';
+import { HomeLayoutComponent } from './components/layouts/home-layout.component';
+import { LoginLayoutComponent } from './components/layouts/login-layout.component';
 
 
 @NgModule({
@@ -44,6 +48,8 @@ import { AppBarComponent } from './components/app-bar/app-bar.component';
     DialogSuccessComponent,
     DialogLoaderComponent,
     AppBarComponent,
+    HomeLayoutComponent,
+    LoginLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,7 @@ import { AppBarComponent } from './components/app-bar/app-bar.component';
     MatSidenavModule,
     MatListModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

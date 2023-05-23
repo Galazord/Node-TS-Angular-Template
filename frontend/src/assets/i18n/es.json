@@ -14,7 +14,7 @@
   "accessDenied": "ACCESO DENEGADO",
   "incorrectUser": "Es necesario pasar un nombre de usuario correcto para iniciar la sesión con éxito.",
   "incorrectUserOrPassw": "El nombre de usuario o la contraseña proporcionados son incorrectos.",
-  "ErrorLogin": "Lo sentimos, por algún motivo no se ha podido iniciar sesión.",
+  "errorLogin": "Lo sentimos, no se ha podido conectar para iniciar sesión.",
   "registeredUserTitle": "USUARIO REGISTRADO",
   "registeredUserText": "El usuario {{nameUser}} se ha registrado correctamente.",
   "passwordRecoveryTitle": "RECUPERAR CONTRASEÑA",
