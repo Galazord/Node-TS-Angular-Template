@@ -1,0 +1,9 @@
+{
+	"badToken": "Para acceder a este recurso es necesario pasar un token de portador de autenticación correcto en la cabecera 'Authorization' de la siguiente manera Bearer <token>",
+	"userExists":"El usuario {{username}} ya existe en el sistema, por favor, seleccione uno diferente",
+	"wrongUsernameOrPassword":"El nombre de usuario o la contraseña proporcionados son incorrectos",
+	"wrongUserAndPassword":"Es necesario pasar una {{str}} correcta para ser registrado con éxito",
+	"userAndPassword":"nombre de usuario y una contraseña correcta",
+	"username":"nombre de usuario",
+	"password":"contraseña"
+}

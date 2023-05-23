@@ -1,0 +1,9 @@
+{
+	"badToken": "Afin d'accéder à cette ressource, vous devez passer un jeton d'authentification correct dans l'en-tête 'Authorization' comme ceci : Bearer <token>",
+	"userExists":"L'utilisateur {{username}} existe déjà dans le système, veuillez en sélectionner un autre.",
+	"wrongUsernameOrPassword":"Le nom d'utilisateur ou le mot de passe fourni est incorrect",
+	"wrongUserAndPassword":"Il est nécessaire de passer un {{str}} correct pour être enregistré avec succès.",
+	"userAndPassword":"nom d'utilisateur et mot de passe correct",
+	"username":"nom d'utilisateur",
+	"password":"mot de passe"
+}

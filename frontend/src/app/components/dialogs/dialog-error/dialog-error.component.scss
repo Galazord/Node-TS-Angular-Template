@@ -1,0 +1,31 @@
+.bg-dialog-title {
+    background-color: #501818;
+    margin: 0;
+    padding-bottom: 10px;
+}
+.icon-color-dialog {
+    color: #f1ecec;
+}
+.mat-divider {
+    border-top-color: #ee2626;
+    border-top-width: 4px;
+}
+.font-roboto-normal {
+    font-family: 'Roboto';
+    letter-spacing: 0.7px;
+    color: #f1ecec;
+}
+.color-text-dark-red {
+    color: #501818;
+}
+.btn-close.mat-mdc-button {
+    width: 100%;
+    color: #555151 !important;
+    background-color: #ddd8d8;
+}
+.mat-icon {
+    vertical-align: middle;
+}
+.position-dialog-title {
+    margin-left: 20px;
+}

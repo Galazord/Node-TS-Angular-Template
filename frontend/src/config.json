@@ -1,0 +1,15 @@
+{
+    "host": "http://localhost:3000",
+    "apiUrl": "/example/api/v1",
+    "apiLogsUrl": "/api/v1/logs",
+    "register": "/register",
+    "login": "/login",
+    "forgottenPassword": "/",
+    "minDate": "&minDate=",
+    "maxDate": "&maxDate=",
+    "authGoogle": "/oauth/google",
+    "idClientGoogle": "273921818497-m2a62ribem4ji4fl65v2ggfk95pg3glg.apps.googleusercontent.com",
+    "secretClientGoogle": "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",
+    "idClientFacebook": "1443266239491481",
+    "dataUpload": ""
+}

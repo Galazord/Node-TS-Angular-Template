@@ -1,0 +1,44 @@
+
+.bg-login{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-image: url("../../../assets/img/img_bg_toolbar.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  animation: slide 25s infinite;
+}
+.bg-login-container{
+  display: contents;
+}
+/* Background transition */
+@keyframes slide{
+  0%{
+    background-image: url("../../../assets/img/img_bg_toolbar.png");
+  }
+  33%{
+    background-image: url("../../../assets/img/img_bg_login_1.png");
+  }
+  67%{
+    background-image: url("../../../assets/img/img_bg_login_2.png");
+  }
+}
+.login-position-panel {
+  display: flex;
+  justify-content: flex-end;  
+}
+.bg-login-panel {
+  background-color: #ffffffe0;
+  height: 105vh;
+}
+
+.bg-register-title{
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 35px;
+}
