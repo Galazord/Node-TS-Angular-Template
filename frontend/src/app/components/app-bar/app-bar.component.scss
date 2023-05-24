@@ -7,11 +7,13 @@
 .white-icon {
     color: #dee8eb;
 }
+.red-icon {
+    color: #ff2f2f;
+}
 
 .example-container {
     width: 100%;
     height: 100%;
-    //border: 1px solid rgba(0, 0, 0, 0.5);
 }
   
 .example-sidenav-content {
@@ -23,4 +25,12 @@
   
 .example-sidenav {
     padding: 20px;
+}
+
+.menu-panel-logo {
+    background-color: #dee8eb;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    z-index: 5;
 }

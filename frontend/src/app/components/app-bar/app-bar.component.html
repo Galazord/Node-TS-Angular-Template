@@ -5,31 +5,71 @@
     </button>
     <span class="text-base color-3">{{ userLocal.id }}</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+    
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon class="white-icon">more_vert</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
+
   </mat-toolbar>
 
-  <mat-drawer #drawer class="example-sidenav" position="start" mode="over">
-    <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
+  <mat-menu #menu="matMenu" class="bg-app-bar">
+    <button mat-menu-item (click)="menuNavRoot('')">
+      <mat-icon class="white-icon">home</mat-icon>
+      <span class="white-icon">Home</span>
+    </button>
+    <button mat-menu-item (click)="menuNavRoot('account')">
+      <mat-icon class="white-icon">person</mat-icon>
+      <span class="white-icon">Mi perfil</span>
+    </button>
+    <button mat-menu-item (click)="menuNavRoot('dataupload')">
+      <mat-icon class="white-icon">upload_file</mat-icon>
+      <span class="white-icon">Subida de datos</span>
+    </button>
+    <button mat-menu-item (click)="menuNavRoot('logs')">
+      <mat-icon class="white-icon">light</mat-icon>
+      <span class="white-icon">Analizador de logs</span>
+    </button>
+    <button mat-menu-item (click)="menuNavRoot('config')">
+      <mat-icon class="white-icon">settings</mat-icon>
+      <span class="white-icon">Configuración</span>
+    </button>
+    <button mat-menu-item (click)="openLogout()">
+      <mat-icon class="red-icon">logout</mat-icon>
+      <span class="red-icon text-base-title">Cerrar sesión</span>
+    </button>
+  </mat-menu>
+
+  <mat-drawer #drawer class="bg-app-bar" position="start" mode="over">
+    <div class="menu-panel-logo">
+      <div style="width: 100%" class="d-flex justify-content-center"><img width="70%" src="../../../assets/img/logo-AIR.png" /></div>
+    </div>
+
+    <button mat-menu-item (click)="menuNavRoot('')">
+      <mat-icon class="white-icon">home</mat-icon>
+      <span class="white-icon">Home</span>
+    </button>
+    <button mat-menu-item (click)="menuNavRoot('account')">
+      <mat-icon class="white-icon">person</mat-icon>
+      <span class="white-icon">Mi perfil</span>
+    </button>
+    <button mat-menu-item (click)="menuNavRoot('dataupload')">
+      <mat-icon class="white-icon">upload_file</mat-icon>
+      <span class="white-icon">Subida de datos</span>
+    </button>
+    <button mat-menu-item (click)="menuNavRoot('logs')">
+      <mat-icon class="white-icon">light</mat-icon>
+      <span class="white-icon">Analizador de logs</span>
+    </button>
+    <button mat-menu-item (click)="menuNavRoot('config')">
+      <mat-icon class="white-icon">settings</mat-icon>
+      <span class="white-icon">Configuración</span>
+    </button>
+    <button mat-menu-item (click)="openLogout()">
+      <mat-icon class="red-icon">logout</mat-icon>
+      <span class="red-icon text-base-title">Cerrar sesión</span>
     </button>
   </mat-drawer>
-</mat-drawer-container>
+  
+  <router-outlet></router-outlet> 
 
-<!-- 
-<mat-sidenav-container class="example-container" autosize>
-  <mat-sidenav #drawer class="example-sidenav" mode="side">
-    <mat-nav-list>
-      <a mat-list-item>Home</a>
-      <a mat-list-item>Configuación</a>
-      <a mat-list-item>Cerrar sesión</a>
-    </mat-nav-list>
-  </mat-sidenav>
-</mat-sidenav-container>
--->
+</mat-drawer-container>

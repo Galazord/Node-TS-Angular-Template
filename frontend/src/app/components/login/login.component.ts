@@ -41,9 +41,7 @@ export class LoginComponent {
     private _builderPassword: FormBuilder,
     private _http: HttpClient,
     public dialog: MatDialog,
-    private _router: Router,
     public translate: TranslateService,
-    private fb: FormBuilder,
     private authService: AuthService
   ){
     this.loginForm = this._builderLogin.group({
@@ -236,20 +234,4 @@ export class LoginComponent {
       hasBackdrop: true
     });
   }
-
-  /*
-  openDialog(): void{
-    const dialogRef = this.dialog.open(DialogErrorComponent, {
-      width: '450px',
-      data: {title: "CERRAR SESIÓN", text: "¿Está seguro de cerrar la sesión de usuario actual?"},
-      disableClose: true,
-      hasBackdrop: true
-    });
-    dialogRef.afterClosed().subscribe(res => {
-      if(res){
-        console.log("Cambios confirmados");
-      }
-    })
-  }
-  */
 }

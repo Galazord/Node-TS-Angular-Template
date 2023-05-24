@@ -24,6 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu'
 
 import { HomeComponent } from './components/home/home.component';
 import { ConfigComponent } from './components/config/config.component';
@@ -76,7 +77,8 @@ import { LoginLayoutComponent } from './components/layouts/login-layout.componen
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
