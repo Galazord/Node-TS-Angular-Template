@@ -36,6 +36,9 @@ import { DialogLoaderComponent } from './components/dialogs/dialog-loader/dialog
 import { AppBarComponent } from './components/app-bar/app-bar.component';
 import { HomeLayoutComponent } from './components/layouts/home-layout.component';
 import { LoginLayoutComponent } from './components/layouts/login-layout.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { LogsAnalyzerComponent } from './components/logs-analyzer/logs-analyzer.component';
+import { DataUploadComponent } from './components/data-upload/data-upload.component';
 
 
 @NgModule({
@@ -51,6 +54,9 @@ import { LoginLayoutComponent } from './components/layouts/login-layout.componen
     AppBarComponent,
     HomeLayoutComponent,
     LoginLayoutComponent,
+    MyProfileComponent,
+    LogsAnalyzerComponent,
+    DataUploadComponent,
   ],
   imports: [
     BrowserModule,

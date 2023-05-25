@@ -45,7 +45,9 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
       }
-    ]
+    ],
+    resolve: {results: HomeLayoutComponent},
+    runGuardsAndResolvers: 'always'
   },
   {
     path: '',
@@ -57,11 +59,13 @@ const routes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: 'reload'
+  })],
   exports: [RouterModule]
 })
 
