@@ -43,11 +43,9 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
+        component: HomeComponent
       }
-    ],
-    resolve: {results: HomeLayoutComponent},
-    runGuardsAndResolvers: 'always'
+    ]
   },
   {
     path: '',
@@ -59,13 +57,11 @@ const routes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    onSameUrlNavigation: 'reload'
-  })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 

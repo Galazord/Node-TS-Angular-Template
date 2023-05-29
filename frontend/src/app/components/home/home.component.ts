@@ -10,28 +10,18 @@ import { filter, pairwise, startWith, takeUntil } from 'rxjs/operators';
 })
 export class HomeComponent{
 
-  public destroyed = new Subject<any>();
-
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      pairwise(),
-      //filter(events => events[0].url === events[1].url),
-      startWith('Initial call'),
-      takeUntil(this.destroyed)
+      filter((event) => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.fetchData();
     });
   }
 
-  ngOnDestroy(): void {
-    this.destroyed.next(void 0);
-    this.destroyed.complete();
-  }
-
   fetchData() {
     //
+    console.log("Router: ");
   }
 }
