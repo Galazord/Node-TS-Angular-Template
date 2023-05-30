@@ -115,9 +115,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-field-dark {
     color: #dee8eb;
 }
-.bg-default {
-    background-color: #ffffff;
-}
 
 /* ANIMATIONS (ANIMATE.CSS) */
 
@@ -131,3 +128,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     animation-duration: 750ms;
 }
 
+/* GENERAL */
+.bg-default {
+    background-color: #ffffff;
+}
+
+.control-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

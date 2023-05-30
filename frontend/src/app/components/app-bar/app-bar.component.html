@@ -3,15 +3,16 @@
     <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon class="white-icon">menu</mat-icon>
     </button>
-    <span class="text-base color-3">{{ userLocal.id }}</span>
+
     <span class="example-spacer"></span>
     
+    <span class="text-base color-3">{{ userLocal.id }}</span>
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon class="white-icon">more_vert</mat-icon>
     </button>
 
   </mat-toolbar>
-
+  <!-- Navegation menu (right) -->
   <mat-menu #menu="matMenu" class="bg-app-bar">
     <button mat-menu-item (click)="menuNavRoot('')">
       <mat-icon class="white-icon">home</mat-icon>
@@ -39,32 +40,33 @@
     </button>
   </mat-menu>
 
+  <!-- Navegation menu (left) -->
   <mat-drawer #drawer class="bg-app-bar" position="start" mode="over">
     <div class="menu-panel-logo">
       <div style="width: 100%" class="d-flex justify-content-center"><img width="70%" src="../../../assets/img/logo-AIR.png" /></div>
     </div>
 
-    <button mat-menu-item (click)="menuNavRoot('')">
+    <button mat-menu-item (click)="menuNavRoot(''); drawer.toggle()">
       <mat-icon class="white-icon">home</mat-icon>
       <span class="white-icon">Home</span>
     </button>
-    <button mat-menu-item (click)="menuNavRoot('account')">
+    <button mat-menu-item (click)="menuNavRoot('account'); drawer.toggle()">
       <mat-icon class="white-icon">person</mat-icon>
       <span class="white-icon">Mi perfil</span>
     </button>
-    <button mat-menu-item (click)="menuNavRoot('dataupload')">
+    <button mat-menu-item (click)="menuNavRoot('dataupload'); drawer.toggle()">
       <mat-icon class="white-icon">upload_file</mat-icon>
       <span class="white-icon">Subida de datos</span>
     </button>
-    <button mat-menu-item (click)="menuNavRoot('logs')">
+    <button mat-menu-item (click)="menuNavRoot('logs'); drawer.toggle()">
       <mat-icon class="white-icon">light</mat-icon>
       <span class="white-icon">Analizador de logs</span>
     </button>
-    <button mat-menu-item (click)="menuNavRoot('config')">
+    <button mat-menu-item (click)="menuNavRoot('config'); drawer.toggle()">
       <mat-icon class="white-icon">settings</mat-icon>
       <span class="white-icon">Configuración</span>
     </button>
-    <button mat-menu-item (click)="openLogout()">
+    <button mat-menu-item (click)="openLogout(); drawer.toggle()">
       <mat-icon class="red-icon">logout</mat-icon>
       <span class="red-icon text-base-title">Cerrar sesión</span>
     </button>

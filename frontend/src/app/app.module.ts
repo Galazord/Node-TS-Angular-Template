@@ -24,7 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu'
+import { MatMenuModule } from '@angular/material/menu';
 
 import { HomeComponent } from './components/home/home.component';
 import { ConfigComponent } from './components/config/config.component';
@@ -39,6 +39,8 @@ import { LoginLayoutComponent } from './components/layouts/login-layout.componen
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { LogsAnalyzerComponent } from './components/logs-analyzer/logs-analyzer.component';
 import { DataUploadComponent } from './components/data-upload/data-upload.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
+
 
 
 @NgModule({
@@ -72,6 +74,7 @@ import { DataUploadComponent } from './components/data-upload/data-upload.compon
         deps: [HttpClient]
       }
     }),
+    NgxFileDropModule,
     MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
@@ -84,7 +87,7 @@ import { DataUploadComponent } from './components/data-upload/data-upload.compon
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
