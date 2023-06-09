@@ -79,5 +79,13 @@
   "errorNotAccessText": "No dispone de permisos para acceder a esta sección.",
   "myDataUpload": "SUBIDA DE DATOS",
   "uploadFile": "SUBIR FICHERO",
-  "name": "Nombre"
+  "name": "Nombre",
+  "notFoundFile": "ERROR - NO SE ENCUENTRA EL ARCHIVO",
+  "textSelectFile": "Por favor, seleccionar primero un archivo",
+  "incompatibleFile": "ERROR - ARCHIVO INCOMPATIBLE",
+  "formatFileError": "El formato del archivo debe ser .xlsx ó .xlsb",
+  "uploadComplete": "SUBIDA COMPLETADA",
+  "fileSavedSuccessfully": "Los datos del archivo se han guardado correctamente.",
+  "failedRegistration": "REGISTRO FALLIDO",
+  "fileSavedInterrupted": "La subida del archivo se ha interrumpido y no se ha completado."
 }

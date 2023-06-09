@@ -40,6 +40,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { LogsAnalyzerComponent } from './components/logs-analyzer/logs-analyzer.component';
 import { DataUploadComponent } from './components/data-upload/data-upload.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -88,6 +89,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
+    MatTableModule,
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],

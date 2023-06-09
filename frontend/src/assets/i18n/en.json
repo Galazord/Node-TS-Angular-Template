@@ -79,6 +79,14 @@
   "errorNotAccessText": "You do not have permission to access this section.",
   "myDataUpload": "DATA UPLOAD",
   "uploadFile": "UPLOAD FILE",
-  "name": "Name"
+  "name": "Name",
+  "notFoundFile": "ERROR - FILE NOT FOUND",
+  "textSelectFile": "Please select a file first",
+  "incompatibleFile": "ERROR - INCOMPATIBLE FILE",
+  "formatFileError": "The file format must be .xlsx or .xlsb.",
+  "uploadComplete": "UPLOAD COMPLETED",
+  "fileSavedSuccessfully": "The data in the file has been saved successfully.",
+  "failedRegistration": "FAILED REGISTRATION",
+  "fileSavedInterrupted": "The file upload has been interrupted and has not been completed."
   
 }

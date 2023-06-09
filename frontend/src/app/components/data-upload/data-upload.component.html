@@ -2,38 +2,63 @@
 	<div class="pa-4 bg-color-2">
 		<form [formGroup]="uploadForm" (ngSubmit)="sendForm(uploadForm.value)">
 			<div class="row">
-				<div class="col-6">
+				<div class="col-8">
 					<ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
 					(onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
 						<ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-							Optional custom content that replaces the the entire default content.
-							<button type="button" (click)="openFileSelector()">Browse Files</button>
+							<span class="text-base color-3">Arrastrar aquí o pulsar en el botón para cargar ficheros</span>
+              <div class="mx-4">
+                <button type="button" (click)="openFileSelector()" class="btn-style btn-color-normal color-4">Cargar ficheros</button>
+              </div>
 						</ng-template>
 					</ngx-file-drop>
 				</div>
 
-				<div class="col-6">
-					<button type="submit" class="btn-style-standard btn-color-normal color-4">{{ 'uploadFile' | translate }}</button>
+				<div class="col-4 my-auto px-4">
+          <div *ngFor="let item of files; let i=index" class="text-base color-3 text-center py-2">
+            <strong>{{ item.relativePath }}</strong>
+          </div>
+          <button type="submit" class="btn-style-standard btn-color-normal color-4">{{ 'uploadFile' | translate }}</button>
 				</div>
 			</div>
 		</form>
 	</div>
+
+  <div class="row mt-4 d-flex justify-content-center">
+    <div class="col-11">
+      <mat-form-field>
+        <mat-label>Filtrar búsqueda...</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+      </mat-form-field>
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Message Column -->
+        <ng-container matColumnDef="message">
+          <th mat-header-cell *matHeaderCellDef> Mensaje </th>
+          <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell text-base text-center" colspan="4">No hay información disponible {{input.value}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
 
-
-<div class="center">
-	<div class="upload-table">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Name</th>
-				</tr>
-			</thead>
-			<tbody class="upload-name-style">
-				<tr *ngFor="let item of files; let i=index">
-					<td><strong>{{ item.relativePath }}</strong></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>

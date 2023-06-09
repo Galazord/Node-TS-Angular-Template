@@ -79,5 +79,13 @@
   "errorNotAccessText": "Vous n'avez pas la permission d'accéder à cette section.",
   "myDataUpload": "TÉLÉCHARGEMENT DE DONNÉES",
   "uploadFile": "TÉLÉCHARGER LE FICHIER",
-  "name": "Nom"
+  "name": "Nom",
+  "notFoundFile": "ERREUR - FICHIER NON TROUVÉ",
+  "textSelectFile": "Veuillez d'abord sélectionner un fichier",
+  "incompatibleFile": "ERREUR - FICHIER INCOMPATIBLE",
+  "formatFileError": "Le format du fichier doit être .xlsx ou .xlsb.",
+  "uploadComplete": "TÉLÉCHARGEMENT TERMINÉ",
+  "fileSavedSuccessfully": "Les données du fichier ont été enregistrées avec succès.",
+  "failedRegistration": "ÉCHEC DE L'ENREGISTREMENT",
+  "fileSavedInterrupted": "Le téléchargement du fichier a été interrompu et n'est pas terminé."
 }
