@@ -10,17 +10,16 @@ import { TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 
-export interface PeriodicElement {
+export interface UploadData {
   date: string;
   name: string;
   message: string
 }
-
-
 @Component({
   selector: 'app-data-upload',
   templateUrl: './data-upload.component.html',
   styleUrls: ['./data-upload.component.scss']
+
 })
 export class DataUploadComponent {
   urldataUpload: string = config.host + config.apiUrl + config.dataUpload
@@ -30,7 +29,7 @@ export class DataUploadComponent {
   resDialogText: string = ''
   resLoadingTitle: string = ''
   respFileContent = []
-  allDataTable: PeriodicElement[] = [];
+  allDataTable: UploadData[] = [];
   displayedColumns: string[] = ['date', 'name', 'message'];
   dataSource = new MatTableDataSource(this.allDataTable);
 

@@ -62,7 +62,7 @@
   "logsAnalizer": "Analizador de logs",
   "logsAnalizerTitle": "ANALIZADOR DE LOGS",
   "minDate": "Fecha inicial",
-  "maxDate": "Date finale",
+  "maxDate": "Fecha final",
   "enterTopic": "Introducir topic y pulsar enter",
   "selectFileLogs": "Seleccionar archivo de logs",
   "analize": "ANALIZAR",

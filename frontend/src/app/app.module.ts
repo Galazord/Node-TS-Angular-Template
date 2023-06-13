@@ -25,6 +25,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatChipsModule} from '@angular/material/chips';
 
 import { HomeComponent } from './components/home/home.component';
 import { ConfigComponent } from './components/config/config.component';
@@ -90,6 +93,11 @@ import { MatTableModule } from '@angular/material/table';
     MatListModule,
     MatMenuModule,
     MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatChipsModule, 
+    MatIconModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
